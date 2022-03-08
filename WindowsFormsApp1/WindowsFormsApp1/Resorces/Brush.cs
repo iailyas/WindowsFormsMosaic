@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -7,13 +6,14 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1.Resorces
 {
-    public class Brush
+    public class Brush: IDisposable
     {
-        List <HatchBrush> brushes;
-        Random random;
-        List <Color> colors;
-        Rectangle rectangle=Screen.PrimaryScreen.Bounds;
-        int size;
+        private Pen pen = new Pen(Color.Black,2);
+        private List <HatchBrush> brushes;
+        private Random random;
+        private List <Color> colors;
+        private Rectangle rectangle=Screen.PrimaryScreen.Bounds;
+        private int size;
 
         public Brush()
         {
@@ -25,19 +25,15 @@ namespace WindowsFormsApp1.Resorces
 
         public void GenerateMosaic(Graphics graphics,int size) 
         {
-            int x=rectangle.Width;
-            int y= rectangle.Height;
-            Pen pen = new Pen(Color.Black,2);
-           // Brush brush = new TextureBrush(brushes);
+            
+           
             foreach (Color c in colors)
             {
               brushes.Add(new HatchBrush(HatchStyle.LargeGrid,c, c));
             }
-            //graphics.FillRectangle(brushes[random.Next(0, 3)], new Rectangle(0, 0, 200, 200));
-            //graphics.FillRectangle(brushes[random.Next(0, 3)], new Rectangle(0, 0, 400, 200));
-            for (int i = 0; i <= x; i+=size*20)
+            for (int i = 0; i <=rectangle.Width; i+=size*20)
             {
-                for (int j = 0; j <= y; j+=size*20)
+                for (int j = 0; j <=rectangle.Height; j+=size*20)
                 {
 
                     DrawRectangle(graphics, pen, random.Next(0, 4), i, j,size*20,size*20);
@@ -65,5 +61,10 @@ namespace WindowsFormsApp1.Resorces
             return size;
         }
 
+        public void Dispose()
+        {
+            pen.Dispose();
+            
+        }
     }
 }

@@ -60,6 +60,7 @@ namespace WindowsFormsApp1
             this.button13 = new System.Windows.Forms.Button();
             this.button14 = new System.Windows.Forms.Button();
             this.button15 = new System.Windows.Forms.Button();
+            this.listView1 = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -211,11 +212,12 @@ namespace WindowsFormsApp1
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button18);
+            this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button15);
             this.panel1.Controls.Add(this.button14);
             this.panel1.Controls.Add(this.button13);
-            this.panel1.Controls.Add(this.button12);
-            this.panel1.Controls.Add(this.button18);
+            this.panel1.Controls.Add(this.listView1);
             this.panel1.Controls.Add(this.button17);
             this.panel1.Controls.Add(this.button16);
             this.panel1.Controls.Add(this.trackBar1);
@@ -316,7 +318,7 @@ namespace WindowsFormsApp1
             // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(3, 187);
+            this.button12.Location = new System.Drawing.Point(6, 169);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(24, 24);
             this.button12.TabIndex = 19;
@@ -325,7 +327,7 @@ namespace WindowsFormsApp1
             // 
             // button13
             // 
-            this.button13.Location = new System.Drawing.Point(33, 187);
+            this.button13.Location = new System.Drawing.Point(36, 169);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(24, 24);
             this.button13.TabIndex = 20;
@@ -334,7 +336,7 @@ namespace WindowsFormsApp1
             // 
             // button14
             // 
-            this.button14.Location = new System.Drawing.Point(63, 187);
+            this.button14.Location = new System.Drawing.Point(66, 169);
             this.button14.Name = "button14";
             this.button14.Size = new System.Drawing.Size(24, 24);
             this.button14.TabIndex = 21;
@@ -343,12 +345,22 @@ namespace WindowsFormsApp1
             // 
             // button15
             // 
-            this.button15.Location = new System.Drawing.Point(93, 187);
+            this.button15.Location = new System.Drawing.Point(96, 169);
             this.button15.Name = "button15";
             this.button15.Size = new System.Drawing.Size(24, 24);
             this.button15.TabIndex = 22;
             this.button15.UseVisualStyleBackColor = true;
             this.button15.Click += new System.EventHandler(this.button15_Click_1);
+            // 
+            // listView1
+            // 
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(0, 154);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(133, 83);
+            this.listView1.TabIndex = 5;
+            this.listView1.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -402,6 +414,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.ListView listView1;
     }
 }
 

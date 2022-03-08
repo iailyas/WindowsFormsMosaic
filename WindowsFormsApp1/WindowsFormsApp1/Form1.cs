@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Windows.Forms;
@@ -60,11 +58,6 @@ namespace WindowsFormsApp1
             pictureBox1.Image = bitmap;
         }
 
-        //private void button4_Click(object sender, EventArgs e)
-        //{
-
-        //}
-
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 
@@ -119,12 +112,6 @@ namespace WindowsFormsApp1
                 ((Button)sender).BackColor = pen.Color;
             }
         }
-
-        //private void trackBar1_Scroll(object sender, EventArgs e)
-        //{
-
-        //}
-
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
             pen.Width = trackBar1.Value;
@@ -136,11 +123,6 @@ namespace WindowsFormsApp1
             brush.GenerateMosaic(graphics, 2);
             pictureBox1.Image = bitmap;
         }
-
-      
-
-       
-
         private void button17_Click(object sender, EventArgs e)
         {
             brush.SetSize(4);
