@@ -1,8 +1,15 @@
-﻿using System;
+﻿using NPOI.Util;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using WindowsFormsApp1.Resorces;
+using WindowsFormsApp1.Resorces.LZ77;
 
 namespace WindowsFormsApp1
 {
@@ -16,13 +23,14 @@ namespace WindowsFormsApp1
         Pen pen = new Pen(Color.Black,3f);
         HatchBrush hBrush = new HatchBrush(HatchStyle.LargeGrid, Color.Black);
         Resorces.Brush brush=new Resorces.Brush();
+        LZ77 LZ77 = new LZ77();
         
         
         private void SetSize() 
         {
 
             Rectangle rectangle = Screen.PrimaryScreen.Bounds;
-            bitmap = new Bitmap(rectangle.Width,rectangle.Height);
+            bitmap = new Bitmap(400,400);
             graphics = Graphics.FromImage(bitmap);
             pen.StartCap = System.Drawing.Drawing2D.LineCap.Round;
             pen.EndCap = System.Drawing.Drawing2D.LineCap.Round;
@@ -204,6 +212,40 @@ namespace WindowsFormsApp1
                 brush.SetColor(colorDialog5.Color);
                 ((Button)sender).BackColor = colorDialog5.Color;
             }
+        }
+        private string BitmapToString(Bitmap bitmap) 
+        {
+            System.IO.MemoryStream stream = new System.IO.MemoryStream();
+            bitmap.Save(stream, System.Drawing.Imaging.ImageFormat.Bmp);
+            byte[] imageBytes = stream.ToArray();
+            string base64String = Convert.ToBase64String(imageBytes);
+
+            return base64String.ToLower();
+        }
+
+        private void button22_Click(object sender, EventArgs e)// encode
+        {
+           textBox2.Text=LZ77.Encode(textBox1.Text);
+        }
+
+        private void button23_Click(object sender, EventArgs e) //Decode
+        {
+           textBox1.Text =LZ77.Decode(textBox2.Text);//вывод текста в текстовое поле
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
